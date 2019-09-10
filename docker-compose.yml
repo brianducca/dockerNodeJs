@@ -1,6 +1,8 @@
 api:  
-     build: .  
+     build: . 
+     container_name: "apiNodeJs" 
      volumes:    
-         - "./api:/src/"  
+         - "./api:/api" 
      ports:    
          - "4005:3000"
+     command: "nodemon --watch api index.js"

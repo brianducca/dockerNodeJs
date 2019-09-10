@@ -1,9 +1,15 @@
 FROM node:latest
-RUN mkdir /src
+
+WORKDIR /api
 RUN npm install nodemon -g
-WORKDIR /src
-ADD api/package.json /src/package.json
-RUN npm install
-ADD api/nodemon.json /src/nodemon.json
+
+COPY api/package.json ./
+
+RUN npm i \
+ && npm cache clean --force \
+ && mv /api/node_modules /node_modules
+
+COPY . .
+
 EXPOSE 3000
-CMD nodemon index.js
+CMD ["node", "index.js"]
