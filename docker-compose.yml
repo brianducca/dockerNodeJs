@@ -1,0 +1,6 @@
+api:  
+     build: .  
+     volumes:    
+         - "./api:/src/"  
+     ports:    
+         - "4005:3000"
