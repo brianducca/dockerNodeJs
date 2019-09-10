@@ -1,6 +1,12 @@
-api:  
-     build: .  
-     volumes:    
-         - "./api:/src/"  
-     ports:    
-         - "4005:3000"
+version: "3"
+services:
+  api:
+    build: .
+    container_name: apiNodeJs # How the container will appear when listing containers from the CLI
+    working_dir: "/src" # Where to container will assume it should run commands and where you will start out if you go inside the container
+    ports:
+    - "4005:3000" # <host-port>:<container-port> to listen to, so anything running on port 3000 of the container will map to port 3000 on our localhost
+    volumes:
+    - "./api:/src/" # <host-directory>:<container-directory> this says map the current directory from your system to the /app directory in the docker container
+    - "/src/node_modules"
+    

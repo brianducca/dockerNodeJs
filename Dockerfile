@@ -1,9 +1,11 @@
 FROM node:latest
 RUN mkdir /src
-RUN npm install nodemon -g
+RUN npm install pm2 -g
 WORKDIR /src
-ADD api/package.json /src/package.json
+COPY /api/package*.json /src
+#COPY /api /src
 RUN npm install
-ADD api/nodemon.json /src/nodemon.json
 EXPOSE 3000
-CMD nodemon index.js
+#COPY /ecosystem.config.js /src
+CMD ["pm2-runtime", "/src/index.js","--watch"]
+#CMD node index.js
