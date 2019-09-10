@@ -5,4 +5,4 @@ api:
          - "./api:/api" 
      ports:    
          - "4005:3000"
-     command: "nodemon --watch api index.js"
+     command: "nodemon -L index.js"
