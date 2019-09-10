@@ -29,14 +29,14 @@ Reemplazar dentro de la carpeta **/api** el contenido, por el contenido de la ap
 
 * **Dockerfile:**
 
-Lo que hace este archivo es llamar a la última versión de Node(en caso que necesitemos, se puede especificar una versión), crea un directorio de trabajo y lo usa.
+Lo que hace este archivo es llamar a la última versión de Node(en caso que necesitemos, se puede especificar una versión) y nos para sobre el directorio de la api.
 Luego agrega el package de ``` nodemon ```, que nos va a servir para que actualize los cambios que vamos haciendo a la api de manera automática.
-Como paso siguiente, se ubica en el directorio que se había creado, agrega el ``` package.json ``` de nuestro proyecto y instala los paquetes con ``` npm install ```.
+Como paso siguiente, agrega el ``` package.json ``` de nuestro proyecto y instala los paquetes con ``` npm install ```.
 Por último expone el puerto 3000 y corre nuestra api.
 
 * **docker-compose.yml:**
 
-Genera el contenedor basado en  ```Dockerfile``` , agrega un volúmeny hace que el puerto 3000 se convierta en el 4005 para afuera.
+Genera el contenedor basado en  ```Dockerfile``` , agrega un volúmen y hace que el puerto 3000 se convierta en el 4005 para afuera.
 Un volúmen nos permite copiar los archivos de nuestra máquina al docker para que de esta forma podamos trabajar desde fuera sin la necesidad de meter los archivos al Docker cada vez que los actualizamos.
 
 * **.dockerignore:**
